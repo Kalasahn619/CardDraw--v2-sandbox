@@ -2,7 +2,7 @@
 function createDeck() {
   const suits = ["♠", "♣", "♥", "♦"];
   const deck = [];
-
+console.log("Script loaded!");
   for (let suit of suits) {
     for (let value = 1; value <= 10; value++) {
       deck.push({ suit, value });
