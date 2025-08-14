@@ -14,7 +14,7 @@
 
     <div class="controls">
       <button id="drawButton" aria-label="Draw 6 cards and a number">Draw Cards</button>
-      <button id="simulateButton" aria-label="Run 100 simulations">Run 500 Simulations</button>
+      <button id="simulateButton" aria-label="Run 500 simulations">Run 500 Simulations</button>
       <button id="resetButton" aria-label="Reset the app">Reset</button>
     </div>
 
@@ -29,32 +29,35 @@
       <ul id="historyLog"></ul>
     </div>
   </div>
-  <!-- Just above the probability display -->
-  <div id="probability-display">
-
-<div id="suitOrderControl">
-  <h3>Custom Suit Order</h3>
-  <select id="suitOrderSelect" multiple>
-    <option value="♠">Spades</option>
-    <option value="♣">Clubs</option>
-    <option value="♥">Hearts</option>
-    <option value="♦">Diamonds</option>
-  </select>
-  <button onclick="saveSuitOrder()">Save Order</button>
-</div>
 
   <div id="probability-display">
-  <h3>Draw Probabilities</h3>
-  <ul id="probability-list"></ul>
-</div>
-<div id="simulationResults">
-  <h3>Simulation Results</h3>
-  <div id="suitResults"></div>
-  <div id="valueResults"></div>
-</div>
+    <div id="suitOrderControl">
+      <h3>Custom Suit Order</h3>
+      <select id="suitOrderSelect" multiple>
+        <option value="♠">Spades</option>
+        <option value="♣">Clubs</option>
+        <option value="♥">Hearts</option>
+        <option value="♦">Diamonds</option>
+      </select>
+      <button onclick="saveSuitOrder()">Save Order</button>
+    </div>
 
- <script src="script.js" defer></script>
+    <div>
+      <h3>Draw Probabilities</h3>
+      <ul id="probability-list"></ul>
+    </div>
 
+    <div id="simulationResults">
+      <h3>Simulation Results</h3>
+      <div id="suitResults"></div>
+      <div id="valueResults"></div>
+    </div>
+  </div>
+
+  <!-- ✅ Correct script path (no duplicate) -->
+  <script src="script.js" defer></script>
+
+  <!-- ✅ Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')
