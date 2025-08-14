@@ -146,7 +146,23 @@ function updateHistoryLog() {
     navigator.serviceWorker.register("service-worker.js")
       .then(() => console.log("Service Worker Registered"));
   }
-   
+ // probability.js (new file in /docs or /scripts)
+export function calculateProbabilities(deckState) {
+  const totalCards = deckState.length;
+  const suitCounts = { Hearts: 0, Diamonds: 0, Clubs: 0, Spades: 0 };
+
+  deckState.forEach(card => {
+    suitCounts[card.suit]++;
+  });
+
+  const probabilities = {};
+  for (let suit in suitCounts) {
+    probabilities[suit] = (suitCounts[suit] / totalCards).toFixed(2);
+  }
+
+  return probabilities;
+}
+  
 
 function resetApp() {
   cardStats = {};
