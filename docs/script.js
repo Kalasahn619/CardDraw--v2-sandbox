@@ -13,6 +13,20 @@ function createDeck() {
   }
   return deck;
 }
+import { calculateProbabilities } from './scripts/probability.js';
+
+function updateProbabilityDisplay(deckState) {
+  const probs = calculateProbabilities(deckState);
+  const list = document.getElementById('probability-list');
+  list.innerHTML = '';
+
+  for (let suit in probs) {
+    const li = document.createElement('li');
+    li.textContent = `${suit}: ${probs[suit] * 100}%`;
+    list.appendChild(li);
+  }
+}
+
 
 function shuffle(deck) {
   for (let i = deck.length - 1; i > 0; i--) {
